@@ -1,0 +1,7 @@
+# Pycharm
+.idea
+.git
+
+# Matlab
+*.asv
+*.mat
