@@ -1,10 +1,10 @@
 %%% Example 2: Processing Velocity Data
 clc; clear; close all;
 % Load Data
-data = MakeSimData();
-data.tMsec = data.tMsec(1:end);
-data.data = diff(data.data, 1, 2);
-fprintf('True Speed: %.2f m/s\n', data.speed)
+[xMm, tMsec, data] = MakeSimData();
+tMsec = tMsec(1:end-1);
+data = diff(data, 1, 2);
+data = MakeDataStruct(xMm, tMsec, data);
 
 % Apply Radon Txfm
 theta = CalcTheta(data.dxdt);

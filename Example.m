@@ -1,8 +1,8 @@
 %%% Example 1: Radon Transform Scripts
 clc; clear; close all;
 % Load Data
-data = MakeSimData();
-fprintf('True Speed: %.2f m/s\n', data.speed)
+[xMm, tMsec, data] = MakeSimData();
+data = MakeDataStruct(xMm, tMsec, data);
 
 % Apply Radon Txfm
 theta = CalcTheta(data.dxdt);
