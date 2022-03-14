@@ -18,7 +18,7 @@ end
 blue = [0, 0.4470, 0.7410];
 oran = [0.8500, 0.3250, 0.0980];
 
-tiledlayout(3, 5, 'TileSpacing', 'none')
+tiledlayout(3, 5, 'TileSpacing', 'tight', 'Padding', 'compact');
 nexttile(1, [2, 2])
 imagesc(data.tMsec, data.xMm, data.data)
 hold on
