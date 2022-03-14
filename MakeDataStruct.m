@@ -1,10 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Make Data Struct for processing
-% Version 1.0, Felix Jin 2020, felix.jin@duke.edu
+% Make a data struct containing input data
 %
-% Key values that are calculated are dx, dt, dxdt, and center.
-% Note: cannot check linearity of xMm and tMsec due
-%   to floating point error.
+% Takes 2D spatiotemporal particle motion and coordinates.
+% Automatically calculates dx, dt, dx/dt, and center point.
 %
 % Arguments:
 %   xMm (vector)
@@ -27,6 +25,14 @@ end
 if length(tMsec) ~= size(data_mat, 2)
     error('tMsec dimension does not match data')
 end
+dx = mean(diff(xMm));
+dt = mean(diff(tMsec));
+if any(abs(diff(xMm)-dx)/dx > 1e-3)
+    warning('xMm has non-uniform spacing')
+end
+if any(abs(diff(tMsec)-dt)/dt > 1e-3)
+    warning('tMsec has non-uniform spacing')
+end
 
 x_center = xMm(floor((end+1)/2));
 t_center = tMsec(floor((end+1)/2));
@@ -34,9 +40,9 @@ center = [x_center, t_center];
 
 data.xMm = xMm;
 data.tMsec = tMsec;
-data.dx = xMm(2) - xMm(1);
-data.dt = tMsec(2) - tMsec(1);
-data.dxdt = data.dx / data.dt;
+data.dx = dx;
+data.dt = dt;
+data.dxdt = dx / dt;
 data.center = center;
 data.data = data_mat;
 end
