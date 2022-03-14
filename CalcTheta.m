@@ -1,14 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Calculate theta range for radon transform
-% Version 1.0, Felix Jin 2020, felix.jin@duke.edu
+% Calculate theta angles for radon transform
 %
 % Arguments:
-%   dxdt (scalar): Slope of data matrix
-%   n_angles (scalar): Defaults to 64
-%   speed_range (2-tuple): Defaults to [0.3, 10.0]
-%   speed_list (vector): Optional override using
-%     the provided specific speeds for angles.
-
+%   dxdt (scalar): Data spatiotemporal sampling ratio
+%   n_angles (scalar): Increasing n_angles decreases the
+%     spacing between speeds and increases the resolution.
+%     Defaults to 64
+%   speed_range (2-tuple): Range of allowed speeds.
+%     Defaults to [0.5, 10.0]
+%   speed_list (vector): Optional override to force only
+%     specific speeds for theta.
+%
 % Returns:
 %   theta (vector)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,7 +23,7 @@ if ~exist('n_angles', 'var')
     n_angles = 64;
 end
 if ~exist('speed_range', 'var')
-    speed_range = [0.3, 10.0];
+    speed_range = [0.5, 10.0];
 end
 maxmin_angle = acotd(speed_range ./ dxdt);
 theta = linspace(maxmin_angle(2), maxmin_angle(1), n_angles);
