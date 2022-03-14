@@ -1,6 +1,5 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plot data, radon transform, and trajectories
-% Version 1.0, Felix Jin 2020, felix.jin@duke.edu
 %
 % Arguments:
 %   fignum (int)
@@ -10,7 +9,7 @@
 %   p_out (struct)
 %   trough (struct): optional
 %   t_out (struct): optional
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function PlotRadon(fignum, data, radout, peak, p_out, trough, t_out)
 if fignum > 0
     figure(fignum)
@@ -43,6 +42,8 @@ if exist('trough', 'var')
 plot(trough.angle, trough.rad_pos, '.w', 'MarkerSize', 12)
 end
 title('Radon Transform')
+xticks([])
+yticks([])
 
 subplot(3,5,[5,10])
 plot(max(radout.txfm, [], 2), radout.rp, 'Color',blue,'LineWidth',1)
@@ -54,6 +55,7 @@ plot(min(radout.txfm, [], 2), radout.rp, 'Color',oran,'LineWidth',1)
 plot([-trough.max_val, 0], [trough.rad_pos, trough.rad_pos], '--','Color',oran,'LineWidth',1)
 end
 set(gca, 'YDir', 'reverse')
+set(gca, 'YAxisLocation', 'right')
 ylabel('radial position')
 axis tight
 
