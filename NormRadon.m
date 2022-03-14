@@ -31,12 +31,10 @@ end
 if exist('mask', 'var') && ~isempty(mask)
     data = data .* mask;
     radon_ones = radon(mask, theta);
-    radon_ones = radon_ones ./ max(radon_ones(:));
-    radon_ones(radon_ones < epsilon) = NaN;
+    radon_ones(radon_ones < epsilon*max(radon_ones(:))) = NaN;
 elseif ~exist('radon_ones', 'var') || isempty(radon_ones)
     radon_ones = radon(ones(size(data)), theta);
-    radon_ones = radon_ones ./ max(radon_ones(:));
-    radon_ones(radon_ones < epsilon) = NaN;
+    radon_ones(radon_ones < epsilon*max(radon_ones(:))) = NaN;
 end
 
 [txfm, rp] = radon(data, theta);
