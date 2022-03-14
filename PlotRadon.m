@@ -46,10 +46,13 @@ xticks([])
 yticks([])
 
 subplot(3,5,[5,10])
-plot(max(radout.txfm, [], 2), radout.rp, 'Color',blue,'LineWidth',1)
+max_line = max(radout.txfm, [], 2);
+plot(max_line, radout.rp, 'Color',blue,'LineWidth',1)
 hold on
+if ~exist('trough', 'var')
+plot([min(max_line), peak.max_val], [peak.rad_pos, peak.rad_pos], '--','Color',blue,'LineWidth',1)
+else
 plot([0, peak.max_val], [peak.rad_pos, peak.rad_pos], '--','Color',blue,'LineWidth',1)
-if exist('trough', 'var')
 plot([0, 0], radout.rp([1, end]), 'k')
 plot(min(radout.txfm, [], 2), radout.rp, 'Color',oran,'LineWidth',1)
 plot([-trough.max_val, 0], [trough.rad_pos, trough.rad_pos], '--','Color',oran,'LineWidth',1)
@@ -60,10 +63,13 @@ ylabel('radial position')
 axis tight
 
 subplot(3,5,[13,14])
-plot(radout.theta, max(radout.txfm, [], 1), 'Color',blue,'LineWidth',1)
+max_line = max(radout.txfm, [], 1);
+plot(radout.theta, max_line, 'Color',blue,'LineWidth',1)
 hold on
+if ~exist('trough', 'var')
+plot([peak.angle, peak.angle], [min(max_line), peak.max_val], '--','Color',blue,'LineWidth',1)
+else
 plot([peak.angle, peak.angle], [0, peak.max_val], '--','Color',blue,'LineWidth',1)
-if exist('trough', 'var')
 plot(radout.theta([1, end]), [0, 0], 'k')
 plot(radout.theta, min(radout.txfm, [], 1), 'Color',oran,'LineWidth',1)
 plot([trough.angle, trough.angle], [-trough.max_val, 0], '--','Color',oran,'LineWidth',1)
