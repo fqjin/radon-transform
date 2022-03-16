@@ -14,8 +14,8 @@ peak = FindRadonPeaks(radout);
 trough = FindRadonPeaks(radout, true);
 
 % Calculate Trajectory
-p_out = CalcTrajectory(peak, data);
-t_out = CalcTrajectory(trough, data);
+p_out = CalcTrajectory(data, peak);
+t_out = CalcTrajectory(data, trough);
 p_res = CalcResolution(data, radout, peak);
 t_res = CalcResolution(data, radout, trough);
 fprintf('Peak Speed: %.2f m/s\n', p_out.speed)
