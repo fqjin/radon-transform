@@ -12,6 +12,16 @@ Features of this package:
 * Apply arbitrary data masks, with helper scripts to make various masks, including hand-drawn masks
 
 
+## Examples
+Example 1: Basic usage
+
+Example 2: Find speeds of peak and trough in particle velocity data
+
+Example 3: Detect multiple waves using masking
+
+Example 4: Hand-drawn mask
+
+
 ## How to use
 0. Load and pre-process your spatiotemporal particle motion data
 1. Use `MakeDataStruct` to create a data struct 
@@ -23,18 +33,9 @@ Features of this package:
 6. Use `PlotRadon` to visualize the results
 
 
-## Examples
-Example 1: Basic usage
-
-Example 2: Find speeds of peak and trough in particle velocity data
-
-Example 3: Detect multiple waves using masking
-
-Example 4: Hand-drawn mask
-
 ## Notes
 * `MakeDataStruct` requires three variables: a 2D array of spatiotemporal data and corresponding vectors for the spatial and temporal coordinates.
-* Common pre-processing steps (not required): filtering, differentiating in time, cropping, normalizing in time at each spatial location.
+* Common pre-processing steps (not required): filtering, resampling, differentiating in time, cropping, normalizing in time at each spatial location, etc.
 * `CalcTheta` may be passed a specific list of discrete wave speeds to search
 * `NormRadon` may be passed a mask to apply it to the input data. This package contains the following helper scripts to generate useful masks:
   * `MaskManual`: the user manually circles the desired wave and the drawing is used as a mask. This is particularly useful for data with multiple waves or confounding artifacts.
