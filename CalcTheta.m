@@ -1,11 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculate theta angles for radon transform
 %
+% Creates a logspace / geomspace of wave speeds to
+% search, unless a specific speed_list is provided.
+%
 % Arguments:
 %   dxdt (scalar): Data spatiotemporal sampling ratio
-%   n_angles (scalar): Increasing n_angles decreases the
+%   n_speeds (scalar): Increasing n_speeds decreases the
 %     spacing between speeds and increases the resolution.
-%     Defaults to 64
+%     Defaults to 128
 %   speed_range (2-tuple): Range of allowed speeds.
 %     Defaults to [0.5, 10.0]
 %   speed_list (vector): Optional override to force only
@@ -14,16 +17,15 @@
 % Returns:
 %   theta (vector)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function theta = CalcTheta(dxdt, n_angles, speed_range, speed_list)
-if exist('speed_list', 'var')
-    theta = acotd(sort(speed_list, 'descend') ./ dxdt);
-    return
+function theta = CalcTheta(dxdt, n_speeds, speed_range, speed_list)
+if ~exist('speed_list', 'var')
+    if ~exist('n_speeds', 'var')
+        n_speeds = 128;
+    end
+    if ~exist('speed_range', 'var')
+        speed_range = [0.5, 10.0];
+    end
+    speed_range = log10(speed_range);
+    speed_list = logspace(speed_range(1), speed_range(2), n_speeds);
 end
-if ~exist('n_angles', 'var')
-    n_angles = 64;
-end
-if ~exist('speed_range', 'var')
-    speed_range = [0.5, 10.0];
-end
-maxmin_angle = acotd(speed_range ./ dxdt);
-theta = linspace(maxmin_angle(2), maxmin_angle(1), n_angles);
+theta = acotd(sort(speed_list, 'descend') ./ dxdt);
