@@ -17,9 +17,9 @@ Example 1: Basic usage
 
 Example 2: Find speeds of peak and trough in particle velocity data
 
-Example 3: Detect multiple waves using masking
+Example 3: Hand-drawn mask
 
-Example 4: Hand-drawn mask
+Example 4: Detect multiple waves using masking
 
 
 ## How to use
