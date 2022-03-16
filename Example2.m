@@ -26,4 +26,4 @@ fprintf('--Resolution_th: %.2f m/s\n', t_res.res_th)
 fprintf('--Resolution_rp: %.2f m/s\n', t_res.res_rp)
 
 % Plot
-PlotRadon(1, data, radout, peak, p_out, trough, t_out)
+PlotRadon(1, data, radout, peak, p_out, trough, t_out, false)
