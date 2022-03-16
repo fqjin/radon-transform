@@ -7,9 +7,16 @@
 % Returns:
 %   mask (matrix)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function mask = MaskManual(data)
+function mask = MaskManual(data, options)
+arguments
+    data struct
+    options.caxis (1,2) = [-inf, inf]
+    options.titletext string = ''
+end
 figure
 imagesc(data.tMsec, data.xMm, data.data)
+caxis(options.caxis)
+title(options.titletext)
 xlabel('Time (ms)')
 ylabel('Lateral (mm)')
 roi = images.roi.Freehand;

@@ -6,7 +6,7 @@ clc; clear; close all;
 data = MakeDataStruct(xMm, tMsec, displ);
 
 % Draw mask
-mask = MaskManual(data);
+mask = MaskManual(data, titletext='Draw a mask encircling one of the two waves');
 
 % Apply Radon Transform
 theta = CalcTheta(data.dxdt);
@@ -26,4 +26,4 @@ fprintf('--Resolution_rp: %.2f m/s\n', res.res_rp)
 
 % Plot
 data.mask = mask;  % this makes it plot the mask overlay
-PlotRadon(1, data, radout, peak, out, [], [], false)
+PlotRadon(2, data, radout, peak, out, [], [], false)
