@@ -1,17 +1,18 @@
-%%% Example 1: Radon Transform Scripts
+%%% Example 1: Basic usage of the radon-transform package
 clc; clear; close all;
-% Load Data
-[xMm, tMsec, data] = MakeSimData();
-data = MakeDataStruct(xMm, tMsec, data);
 
-% Apply Radon Txfm
+% Load Data
+[xMm, tMsec, displ] = MakeSimData(1);
+data = MakeDataStruct(xMm, tMsec, displ);
+
+% Apply Radon Transform
 theta = CalcTheta(data.dxdt);
 radout = NormRadon(data.data, theta);
 
 % Find Peak
 peak = FindRadonPeaks(radout);
 
-% Calc Trajectory
+% Calculate Trajectory
 out = CalcTrajectory(peak, data);
 res = CalcResolution(radout, peak, data.dxdt, out.speed);
 fprintf('Calc Speed: %.2f m/s\n', out.speed)
