@@ -1,20 +1,19 @@
-%%% Example 2: Processing Velocity Data
+%%% Example 2: Find both peak and trough: particle velocity data
 clc; clear; close all;
-% Load Data
-[xMm, tMsec, data] = MakeSimData();
-tMsec = tMsec(1:end-1);
-data = diff(data, 1, 2);
-data = MakeDataStruct(xMm, tMsec, data);
 
-% Apply Radon Txfm
+% Load Data
+[xMm, tMsec, displ] = MakeSimData(2);
+data = MakeDataStruct(xMm, tMsec, displ);
+
+% Apply Radon Transform
 theta = CalcTheta(data.dxdt);
 radout = NormRadon(data.data, theta);
 
 % Find Peak
 peak = FindRadonPeaks(radout);
-trough = FindRadonPeaks(radout, 1);
+trough = FindRadonPeaks(radout, true);
 
-% Calc Trajectory
+% Calculate Trajectory
 p_out = CalcTrajectory(peak, data);
 t_out = CalcTrajectory(trough, data);
 p_res = CalcResolution(radout, peak, data.dxdt, p_out.speed);
