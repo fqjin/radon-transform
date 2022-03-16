@@ -56,7 +56,7 @@ case 2
     t_ = tMsec - 0.7;
     x_ = xMm.' / 5.0;
     data = 0.1 * (2.75-x_) .* cos(2*(t_-x_)) .* exp(-.1*(t_-x_-0.5).^4);
-    data = data + 0.15 - 0.05*tMsec;
+    data = data + 0.14 - 0.02*tMsec;
     noise = imresize(randn(34, 7), [34, 310], 'bicubic');
     data = data + 0.03 * noise;
 case 3
