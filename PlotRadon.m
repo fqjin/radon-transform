@@ -26,7 +26,11 @@ oran = [0.8500, 0.3250, 0.0980];
 
 tiledlayout(3, 5, 'TileSpacing', 'tight', 'Padding', 'compact');
 nexttile(1, [2, 2])
+if ~isfield(data, 'mask')
 imagesc(data.tMsec, data.xMm, data.data)
+else
+imagesc(data.tMsec, data.xMm, data.data, 'AlphaData', data.mask+0.5)
+end
 hold on
 plot(p_out.times, data.xMm, 'k', 'LineWidth', 2)
 if trough_mode
