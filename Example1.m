@@ -21,3 +21,9 @@ fprintf('--Resolution_rp: %.2f m/s\n', res.res_rp)
 
 % Plot
 PlotRadon(1, data, radout, peak, out)
+
+% show more xticks
+ax = nexttile(3, [2, 2]);
+set(ax, 'XTick', [0.5,1,2,4,8])
+ax = nexttile(13, [1, 2]);
+set(ax, 'XTick', [0.5,1,2,4,8])
