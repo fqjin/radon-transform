@@ -13,13 +13,23 @@ Features of this package:
 
 
 ## Examples
+Refer to the example scripts to see how this package is used:
+
 Example 1: Basic usage
+
+<img src="./imgs/Example1.png" width="80%">
 
 Example 2: Find speeds of peak and trough in particle velocity data
 
-Example 3: Hand-drawn mask
+<img src="./imgs/Example2.png" width="80%">
 
-Example 4: Detect multiple waves using masking
+Example 3: Hand-drawn masks
+
+<img src="./imgs/Example3a.png" width="48%"><img src="./imgs/Example3b.png" width="48%">
+
+Example 4: Detect multiple waves with trajectory masking
+
+<img src="./imgs/Example4a.png" width="48%"><img src="./imgs/Example4b.png" width="48%">
 
 
 ## How to use
