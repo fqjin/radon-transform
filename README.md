@@ -10,9 +10,8 @@ The slope of the trajectory that maximizes the Radon transform is the group spee
 
 Features of this package:
 * Adjustable speed range and resolution
-* The normalized Radon transform accounts for trajectory length
-* Wave strength metric equal to the data averaged along the trajectory
-* Apply arbitrary data masks, with helper scripts to make various masks, including hand-drawn masks
+* Normalized Radon transform accounts for trajectory length and gives a strength metric equal to the average data along the trajectory
+* Apply arbitrary masks to input data, with helper scripts to make various masks, including hand-drawn masks
 
 
 ## Examples
@@ -55,3 +54,11 @@ By default, it constructs a logarithmically-spaced speed range.
   * `MaskManual`: the user manually circles the desired wave and the drawing is used as a mask. This is particularly useful for data with multiple waves or to avoid artifacts.
   * `MaskTrajectory` uses the inverse Radon transform to mask out a specified trajectory
   * `MaskSpeed` creates a speed-based mask to isolate data faster or slower than a specified speed
+
+
+## Reference
+If you use this package, please cite the Zenodo DOI.
+
+If you use this package for ultrasound SWE/SWEI, please also cite the paper that first proposed this approach:
+
+[N. C. Rouze, M. H. Wang, M. L. Palmeri and K. R. Nightingale, "Robust estimation of time-of-flight shear wave speed using a radon sum transformation," in IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 57, no. 12, pp. 2662-2670, December 2010.](https://doi.org/10.1109/TUFFC.2010.1740)
