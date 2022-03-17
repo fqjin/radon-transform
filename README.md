@@ -1,3 +1,6 @@
+[![DOI]()]()
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Radon transform wave-speed estimator
 This package contains MATLAB scripts that use the Radon transform to find the wave speed and trajectory from spatiotemporal particle motion data.
 This code was developed for processing ultrasound shear wave elasticity imaging data (SWE/SWEI).
