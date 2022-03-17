@@ -57,6 +57,8 @@ if trough_mode
 plot(t_out.speed, trough.rad_pos, '.w', 'MarkerSize', 12)
 end
 title('Radon Transform')
+ylabel('Radial Position')
+xlabel('Speed (m/s)')
 set(gca, 'YDir', 'reverse')
 set(gca, 'YAxisLocation', 'right')
 if logscale
@@ -67,28 +69,28 @@ nexttile(5, [2, 1])
 max_line = max(radout.txfm, [], 2);
 plot(max_line, radout.rp, 'Color',blue,'LineWidth',1)
 hold on
-plot([min(max_line), peak.max_val], [1,1].*peak.rad_pos, '--','Color',blue,'LineWidth',1)
+plot([min(max_line), peak.max_val], [1,1].*peak.rad_pos, ':','Color',blue,'LineWidth',1.5)
 if trough_mode
 min_line = min(radout.txfm, [], 2);
 plot(min_line, radout.rp, 'Color',oran,'LineWidth',1)
-plot([-trough.max_val, max(min_line)], [1,1].*trough.rad_pos, '--','Color',oran,'LineWidth',1)
+plot([-trough.max_val, max(min_line)], [1,1].*trough.rad_pos, ':','Color',oran,'LineWidth',1.5)
 end
+xlabel('Max Value')
 ylim(radout.rp([1,end]))
-ylabel('Radial Position')
 set(gca, 'YDir', 'reverse')
 
 nexttile(13, [1, 2])
 max_line = max(radout.txfm, [], 1);
 plot(speed_list, max_line,'Color',blue,'LineWidth',1)
 hold on
-plot([1,1].*p_out.speed, [min(max_line), peak.max_val], '--','Color',blue,'LineWidth',1)
+plot([1,1].*p_out.speed, [min(max_line), peak.max_val], ':','Color',blue,'LineWidth',1.5)
 if trough_mode
 min_line = min(radout.txfm, [], 1);
 plot(speed_list, min_line, 'Color',oran,'LineWidth',1)
-plot([1,1].*t_out.speed, [-trough.max_val, max(min_line)], '--','Color',oran,'LineWidth',1)
+plot([1,1].*t_out.speed, [-trough.max_val, max(min_line)], ':','Color',oran,'LineWidth',1.5)
 end
+ylabel('Max Value')
 xlim(speed_list([1,end]))
-xlabel('Speed (m/s)')
 set(gca, 'XAxisLocation', 'top')
 if logscale
     set(gca, 'XScale', 'log')
