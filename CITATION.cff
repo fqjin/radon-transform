@@ -12,5 +12,5 @@ authors:
     orcid: 'https://orcid.org/0000-0003-0533-618X'
 repository-code: 'https://github.com/fqjin/radon-transform'
 license: Apache-2.0
-version: 2.0.0
+version: 1.2.0
 date-released: '2022-03-17'
