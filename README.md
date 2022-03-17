@@ -34,24 +34,24 @@ Example 4: Detect multiple waves with trajectory masking
 
 ## How to use
 0. Load and pre-process your spatiotemporal particle motion data
-1. Use `MakeDataStruct` to create a data struct 
+1. Create a data struct with `MakeDataStruct`
 2. Use `CalcTheta` to generate a speed search range 
 3. Use `NormRadon` to perform the normalized Radon transform, with optional masking (see notes) 
-4. Use `FindRadonPeaks` to find the transform's peak, with optional restrictions (see notes)
+4. Use `FindRadonPeaks` to find the transform's peak
 5. Use `CalcTrajectory` to calculate the wave speed and trajectory.
-   * (optional) use `CalcResolution` to get the resolution for the output speed
-6. Use `PlotRadon` to visualize the results
+   * (optional) `CalcResolution` estimates the resolution for the output speed
+6. Visualize results with `PlotRadon`
 
 
 ## Notes
-* `MakeDataStruct` requires three variables: a 2D array of spatiotemporal data and corresponding vectors for the spatial and temporal coordinates.
+* `MakeDataStruct` requires three quantities: a 2D array of spatiotemporal data and the corresponding vectors for spatial and temporal coordinates.
 * Common pre-processing steps (not required): filtering, resampling, differentiating in time, cropping, normalizing in time at each spatial location, etc.
-* `CalcTheta` may be passed a specific list of discrete wave speeds to search
+* `CalcTheta` may be passed a specific list of discrete wave speeds to search.
+By default, it constructs a logarithmically-spaced speed range.
 * `NormRadon` may be passed a mask to apply it to the input data. This package contains the following helper scripts to generate useful masks:
-  * `MaskManual`: the user manually circles the desired wave and the drawing is used as a mask. This is particularly useful for data with multiple waves or confounding artifacts.
-  * `MaskSpeed` creates a speed-based mask to isolate data faster or slower than a defined speed
-  * `MaskTrajectory` uses the inverse Radon transform to mask out a detected trajectory
-* Optional restrictions for `FindRadonPeaks` can be used to limit the trajectory search space to waves that originate from near the origin.
+  * `MaskManual`: the user manually circles the desired wave and the drawing is used as a mask. This is particularly useful for data with multiple waves or to avoid artifacts.
+  * `MaskTrajectory` uses the inverse Radon transform to mask out a specified trajectory
+  * `MaskSpeed` creates a speed-based mask to isolate data faster or slower than a specified speed
 
 
 ## Citing
