@@ -1,8 +1,7 @@
 cff-version: 1.2.0
 title: A Radon Transform Wave-Speed Estimator
 message: >-
-  If you use this package, please cite it using the
-  metadata from this file.
+  If you find this package useful, please consider citing the Zenodo DOI.
 type: software
 authors:
   - given-names: Felix
@@ -12,5 +11,4 @@ authors:
     orcid: 'https://orcid.org/0000-0003-0533-618X'
 repository-code: 'https://github.com/fqjin/radon-transform'
 license: Apache-2.0
-version: 2.0.0
 date-released: '2022-03-17'
