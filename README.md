@@ -1,12 +1,10 @@
 [![DOI](https://zenodo.org/badge/469215495.svg)](https://zenodo.org/badge/latestdoi/469215495)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# Radon transform wave-speed estimator
+# A Radon transform wave-speed estimator
 This package contains MATLAB scripts that use the Radon transform to find the wave speed and trajectory from spatiotemporal particle motion data.
 This code was developed for processing ultrasound shear wave elasticity imaging data (SWE/SWEI).
-
-The Radon transform calculates the line integral of 2D data over all possible trajectories.
-The slope of the trajectory that maximizes the Radon transform is the group speed of the wavefront.
+The Radon transform calculates the line integral of 2D data over all possible trajectories, and the slope of the trajectory that maximizes the Radon transform is the group speed of the wavefront.
 
 Features of this package:
 * Adjustable speed range and resolution
@@ -56,9 +54,8 @@ By default, it constructs a logarithmically-spaced speed range.
   * `MaskSpeed` creates a speed-based mask to isolate data faster or slower than a specified speed
 
 
-## Reference
-If you use this package, please cite the Zenodo DOI.
+## Citation
+If you find this package useful, please consider citing the Zenodo DOI.
 
-If you use this package for ultrasound SWE/SWEI, please also cite the paper that first proposed this approach:
-
+If you use this package for ultrasound SWE/SWEI, please also cite the paper first proposing this approach:
 [N. C. Rouze, M. H. Wang, M. L. Palmeri and K. R. Nightingale, "Robust estimation of time-of-flight shear wave speed using a radon sum transformation," in IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 57, no. 12, pp. 2662-2670, December 2010.](https://doi.org/10.1109/TUFFC.2010.1740)
