@@ -9,7 +9,7 @@
 %   p_out (struct)
 %   trough (struct): optional
 %   t_out (struct): optional
-%   logscale (bool): optional, default true
+%   logscale (bool): optional, default false
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function PlotRadon(fignum, data, radout, peak, p_out, trough, t_out, logscale)
 if fignum > 0
@@ -17,7 +17,7 @@ if fignum > 0
     clf
 end
 if ~exist('logscale', 'var')
-    logscale = true;
+    logscale = false;
 end
 trough_mode = exist('trough','var') && exist('t_out','var') ...
               && ~isempty(trough) && ~isempty(t_out);

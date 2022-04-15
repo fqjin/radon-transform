@@ -26,4 +26,4 @@ fprintf('--Resolution_rp: %.2f m/s\n', res.res_rp)
 
 % Plot
 data.mask = mask;  % this makes it plot the mask overlay
-PlotRadon(2, data, radout, peak, out, [], [], false)
+PlotRadon(2, data, radout, peak, out)
