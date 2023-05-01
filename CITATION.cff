@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: A Radon Transform Wave-Speed Estimator
 message: >-
-  If you find this package useful, please consider citing the Zenodo DOI.
+  If you find this package useful, please consider citing the proceedings paper.
 type: software
 authors:
   - given-names: Felix
