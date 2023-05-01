@@ -55,7 +55,14 @@ By default, it constructs a logarithmically-spaced speed range.
 
 
 ## Citation
-If you find this package useful, please consider citing the Zenodo DOI.
-
-If you use this package for ultrasound SWE/SWEI, please also cite the paper first proposing this approach:
-[N. C. Rouze, M. H. Wang, M. L. Palmeri and K. R. Nightingale, "Robust estimation of time-of-flight shear wave speed using a radon sum transformation," in IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, vol. 57, no. 12, pp. 2662-2670, December 2010.](https://doi.org/10.1109/TUFFC.2010.1740)
+If you find this package useful, please consider citing the [proceedings paper](https://doi.org/10.1109/IUS54386.2022.9957817):
+```
+@inproceedings{jin2022open,
+  title={An Open-Source Radon-Transform Shear Wave Speed Estimator with Masking Functionality to Isolate Different Shear-Wave Modes},
+  author={Jin, Felix Q and Knight, Anna E and Paley, Courtney Trutna and Pietrosimone, Laura S and Hobson-Webb, Lisa D and Nightingale, Kathryn R and Palmeri, Mark L},
+  booktitle={2022 IEEE International Ultrasonics Symposium (IUS)},
+  pages={1--4},
+  year={2022},
+  organization={IEEE}
+}
+```
